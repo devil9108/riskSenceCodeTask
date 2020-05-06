@@ -1,2 +1,0 @@
-# riskSenceCodeTask
-Created with CodeSandbox
