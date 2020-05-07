@@ -1,4 +1,16 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+.header {
+  background-color: white;
+  /* -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.75);
+  */
+}
+
+.lSider {
+  overflow: auto;
+  height: 100vh;
+  overflow-y: hidden;
+}
+.lSider:hover {
+  overflow-y: visible;
 }
