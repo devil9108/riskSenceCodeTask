@@ -10,7 +10,7 @@ export default function NavBar() {
         key="browse"
         title={
           <span>
-            <span>BROWSE{" "}</span>
+            <span>BROWSE </span>
             <DownOutlined />
           </span>
         }
@@ -25,7 +25,7 @@ export default function NavBar() {
         title={
           <span>
             <Avatar icon={<UserOutlined />} />
-            <span>{" "}My Account{" "}</span>
+            <span> My Account </span>
             <DownOutlined />
           </span>
         }

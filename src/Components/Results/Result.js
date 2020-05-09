@@ -8,7 +8,6 @@ import DisplayJob from "./DisplayJob";
 let { Option } = Select;
 
 export default function Result(props) {
-
   const handleChange = value => {
     console.log(value);
   };
@@ -35,12 +34,14 @@ export default function Result(props) {
           </Col>
         </Row>
         <List
-        itemLayout='vertical'
-        pagination={{
-          onChange: page => console.log(page),pageSize:5, size:'small'
-        }}
-        dataSource={props.data}
-        renderItem={ item => <DisplayJob data={item} />}
+          itemLayout="vertical"
+          pagination={{
+            onChange: page => console.log(page),
+            pageSize: 5,
+            size: "small"
+          }}
+          dataSource={props.data}
+          renderItem={item => <DisplayJob data={item} />}
         />
       </div>
     </div>

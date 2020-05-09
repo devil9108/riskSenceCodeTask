@@ -11,7 +11,7 @@ import {
   Input
 } from "antd";
 
-import { skills, countryList, LANGUAGES,jobTitles } from "../../RawData";
+import { skills, countryList, LANGUAGES, jobTitles } from "../../RawData";
 
 let { Title } = Typography;
 const { Option } = Select;
@@ -19,10 +19,15 @@ const { Option } = Select;
 export default function Lsider(props) {
   console.log(props);
 
-  let [language,setLanguage] = React.useState('English');
-  let [expLevel, setExpLevel] = React.useState('');
-  let [defaultRange,setdefaultRange] = React.useState([1800,2700]);
-  let [selectedSkills,setSelectedSkills] = React.useState(['oracle','js','webpack','react']);
+  let [language, setLanguage] = React.useState("English");
+  let [expLevel, setExpLevel] = React.useState("");
+  let [defaultRange, setdefaultRange] = React.useState([1800, 2700]);
+  let [selectedSkills, setSelectedSkills] = React.useState([
+    "oracle",
+    "js",
+    "webpack",
+    "react"
+  ]);
   let marks = { 100: "0100", 10000: "10000+" };
 
   let skillsOption = skills.map(skill => <Option key={skill}>{skill}</Option>);
@@ -39,22 +44,22 @@ export default function Lsider(props) {
 
   const handleexpLevel = value => setExpLevel(value);
 
-  const handleClear = callback => callback('');
+  const handleClear = callback => callback("");
 
-  const handlerangeClear = () => setdefaultRange([1800,2700]);
+  const handlerangeClear = () => setdefaultRange([1800, 2700]);
 
   const clearAllFilters = () => {
-    setExpLevel('');
-    setdefaultRange([1800,2700]);
-    setLanguage('English');
-    setSelectedSkills(['oracle','js','webpack','react']);
-    props.setJobType('');
-    props.setLocation('');
-    props.setTitle('')
-  }
+    setExpLevel("");
+    setdefaultRange([1800, 2700]);
+    setLanguage("English");
+    setSelectedSkills(["oracle", "js", "webpack", "react"]);
+    props.setJobType("");
+    props.setLocation("");
+    props.setTitle("");
+  };
 
   return (
-    <div style={{width:'90%'}}>
+    <div style={{ width: "90%" }}>
       <Row justify="space-between" align="middle">
         <Col>
           <Title level={3} style={{ margin: "0px" }}>
@@ -80,7 +85,13 @@ export default function Lsider(props) {
           </Title>
         </Col>
         <Col>
-          <Button type="link" style={{ color: "#bbb", padding: "0px" }} onClick={() => setSelectedSkills(['oracle','js','webpack','react'])}>
+          <Button
+            type="link"
+            style={{ color: "#bbb", padding: "0px" }}
+            onClick={() =>
+              setSelectedSkills(["oracle", "js", "webpack", "react"])
+            }
+          >
             Clear
           </Button>
         </Col>
@@ -92,7 +103,7 @@ export default function Lsider(props) {
             placeholder="Please select"
             defaultValue={selectedSkills}
             value={selectedSkills}
-            onChange={(value) => setSelectedSkills(value)}
+            onChange={value => setSelectedSkills(value)}
             style={{ width: "100%" }}
           >
             {skillsOption}
@@ -107,7 +118,11 @@ export default function Lsider(props) {
           </Title>
         </Col>
         <Col>
-          <Button type="link" style={{ color: "#bbb", padding: "0px" }} onClick = { () => props.setJobType('')}>
+          <Button
+            type="link"
+            style={{ color: "#bbb", padding: "0px" }}
+            onClick={() => props.setJobType("")}
+          >
             Clear
           </Button>
         </Col>
@@ -125,7 +140,10 @@ export default function Lsider(props) {
           <Checkbox className="checkBox" onChange={props.setJobType('Full time')}>
             Full-time(40hrs/wk)
           </Checkbox> */}
-          <Checkbox.Group value={[props.jobType]} onChange={value => props.setJobType(...value)}>
+          <Checkbox.Group
+            value={[props.jobType]}
+            onChange={value => props.setJobType(...value)}
+          >
             <Row>
               <Checkbox value="Full time">Full Time</Checkbox>
             </Row>
@@ -143,7 +161,11 @@ export default function Lsider(props) {
           </Title>
         </Col>
         <Col>
-          <Button type="link" style={{ color: "#bbb", padding: "0px" }} onClick={()=>props.setTitle('')}>
+          <Button
+            type="link"
+            style={{ color: "#bbb", padding: "0px" }}
+            onClick={() => props.setTitle("")}
+          >
             Clear
           </Button>
         </Col>
@@ -153,10 +175,14 @@ export default function Lsider(props) {
           <Select
             placeholder="Select A Job Type"
             style={{ width: "100%", marginTop: "10px" }}
-            value = {props.title||'Select A Job Type'}
+            value={props.title || "Select A Job Type"}
             onChange={value => props.setTitle(value)}
           >
-            {jobTitles.map((title,index) => <Option value={title} key={index}>{title}</Option> )}
+            {jobTitles.map((title, index) => (
+              <Option value={title} key={index}>
+                {title}
+              </Option>
+            ))}
           </Select>
         </Col>
       </Row>
@@ -168,7 +194,11 @@ export default function Lsider(props) {
           </Title>
         </Col>
         <Col>
-          <Button type="link" style={{ color: "#bbb", padding: "0px" }} onClick={handlerangeClear}>
+          <Button
+            type="link"
+            style={{ color: "#bbb", padding: "0px" }}
+            onClick={handlerangeClear}
+          >
             Clear
           </Button>
         </Col>
@@ -212,7 +242,11 @@ export default function Lsider(props) {
           </Title>
         </Col>
         <Col>
-          <Button type="link" style={{ color: "#bbb", padding: "0px" }} onClick={() => handleClear(setExpLevel)}>
+          <Button
+            type="link"
+            style={{ color: "#bbb", padding: "0px" }}
+            onClick={() => handleClear(setExpLevel)}
+          >
             Clear
           </Button>
         </Col>
@@ -239,7 +273,11 @@ export default function Lsider(props) {
           </Title>
         </Col>
         <Col>
-          <Button type="link" style={{ color: "#bbb", padding: "0px" }} onClick = {() => props.setLocation('')}>
+          <Button
+            type="link"
+            style={{ color: "#bbb", padding: "0px" }}
+            onClick={() => props.setLocation("")}
+          >
             Clear
           </Button>
         </Col>
@@ -249,7 +287,7 @@ export default function Lsider(props) {
           <Select
             placeholder="Select states"
             value={props.location}
-            onChange={ value => props.setLocation(value)}
+            onChange={value => props.setLocation(value)}
             style={{ width: "100%", marginTop: "10px" }}
           >
             {cities}
@@ -264,7 +302,11 @@ export default function Lsider(props) {
           </Title>
         </Col>
         <Col>
-          <Button type="link" style={{ color: "#bbb", padding: "0px" }} onClick={()=>handleClear(setLanguage)}>
+          <Button
+            type="link"
+            style={{ color: "#bbb", padding: "0px" }}
+            onClick={() => handleClear(setLanguage)}
+          >
             Clear
           </Button>
         </Col>
@@ -275,8 +317,8 @@ export default function Lsider(props) {
             mode="multiple"
             placeholder="Select languages"
             onChange={handleLanguageChange}
-            defaultValue={'English'}
-            value={[language] || 'English'}
+            defaultValue={"English"}
+            value={[language] || "English"}
             style={{ width: "100%", marginTop: "10px" }}
           >
             {languages}

@@ -1,10 +1,32 @@
 export const skills = [
-  'react','npm','webpack','html','js','css','scala','java','spring','kafka','hadoop','spark','oracle','mysql','program management'
+  "react",
+  "npm",
+  "webpack",
+  "html",
+  "js",
+  "css",
+  "scala",
+  "java",
+  "spring",
+  "kafka",
+  "hadoop",
+  "spark",
+  "oracle",
+  "mysql",
+  "program management"
 ];
 
 export const jobTitles = [
-  'Reactjs FrontEnd Engineer', "Front End Engineer", "FrontEnd consultant", "React Engineer", "Java Engineer", "Full stack Engineer", "Data Engineer", "DB Admin", "Program Manager"
-]
+  "Reactjs FrontEnd Engineer",
+  "Front End Engineer",
+  "FrontEnd consultant",
+  "React Engineer",
+  "Java Engineer",
+  "Full stack Engineer",
+  "Data Engineer",
+  "DB Admin",
+  "Program Manager"
+];
 
 export const LANGUAGES = [
   "Mandarin Chinese",
@@ -33,5 +55,13 @@ export const LANGUAGES = [
 ];
 
 export const countryList = [
-  "California", "Dallas", "Chennai", "Bangalore", "New York", "Hyderabad","Texas","Philliphines","Singapore"
-]
+  "California",
+  "Dallas",
+  "Chennai",
+  "Bangalore",
+  "New York",
+  "Hyderabad",
+  "Texas",
+  "Philliphines",
+  "Singapore"
+];
