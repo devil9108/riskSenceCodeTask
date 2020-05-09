@@ -1,31 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { Row, Col, Select, Pagination } from "antd";
+import React from "react";
+import { Row, Col, Select, List } from "antd";
 import Title from "antd/lib/typography/Title";
 import Text from "antd/lib/typography/Text";
-import { jobs } from "../../jobsAvailable.js";
 
 import DisplayJob from "./DisplayJob";
 
 let { Option } = Select;
 
-export default function Result() {
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState([...jobs.slice(page * 5 - 5, page * 5)]);
-
-  useEffect(() => {
-    setData([...jobs.slice(page * 5 - 5, page * 5)]);
-  }, [page]);
+export default function Result(props) {
 
   const handleChange = value => {
     console.log(value);
-    setPage(value);
   };
+
   return (
     <div style={{}}>
       <div style={{ padding: "20px", backgroundColor: "white" }}>
         <Row justify={"space-between"}>
           <Col>
-            <Title level={3}>Results (24)</Title>
+            <Title level={3}>Results ({props.data.length})</Title>
           </Col>
           <Col>
             <Text type="secondary">Sort by </Text>
@@ -41,18 +34,15 @@ export default function Result() {
             </Select>
           </Col>
         </Row>
-        {data.map(job => (
-          <DisplayJob data={job} />
-        ))}
+        <List
+        itemLayout='vertical'
+        pagination={{
+          onChange: page => console.log(page),pageSize:5, size:'small'
+        }}
+        dataSource={props.data}
+        renderItem={ item => <DisplayJob data={item} />}
+        />
       </div>
-      <Pagination
-        size="small"
-        total={jobs.length}
-        pageSize={5}
-        responsive
-        style={{ width: "100%", padding: "10px", textAlign: "right" }}
-        onChange={handleChange}
-      />
     </div>
   );
 }

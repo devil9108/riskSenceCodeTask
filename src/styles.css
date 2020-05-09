@@ -8,7 +8,6 @@
 
 .lSider {
   overflow: auto;
-  height: 100vh;
   overflow-y: hidden;
 }
 .lSider:hover {

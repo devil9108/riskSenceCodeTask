@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu } from "antd";
+import { Menu, Avatar } from "antd";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
 
 export default function NavBar() {
@@ -24,8 +24,8 @@ export default function NavBar() {
         key="userDetails"
         title={
           <span>
-            <UserOutlined />
-            <span>My Account{" "}</span>
+            <Avatar icon={<UserOutlined />} />
+            <span>{" "}My Account{" "}</span>
             <DownOutlined />
           </span>
         }

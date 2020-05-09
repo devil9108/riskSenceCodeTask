@@ -17,7 +17,7 @@ export const jobs =[
     "salarymax": "1700",
     "jobType": "Full Time",
     "location": "California",
-    "requiredSkills": "html,js.css"
+    "requiredSkills": "html,js,css"
   },
   {
     "id": 3,
