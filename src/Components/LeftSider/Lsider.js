@@ -56,6 +56,7 @@ export default function Lsider(props) {
     props.setJobType("");
     props.setLocation("");
     props.setTitle("");
+    props.resetData();
   };
 
   return (

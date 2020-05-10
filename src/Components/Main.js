@@ -12,6 +12,7 @@ export default function Main(props) {
   const [loading, setLoading] = React.useState(false);
   const [location, setLocation] = React.useState("");
   const [title, setTitle] = React.useState("");
+  const [query, setQuery] = React.useState("");
   let data = props.data;
 
   const handleSearch = value => {
@@ -20,7 +21,7 @@ export default function Main(props) {
       location: location,
       job_type: jobType,
       description: value,
-      query: value,
+      query: query,
       title: title
     };
     console.log(headers);
@@ -38,11 +39,23 @@ export default function Main(props) {
       });
   };
 
+  const resetData = () => {
+    setQuery("");
+    Axios.get("http://localhost:9090/api/jobdescriptions/")
+      .then(res => props.setData([...res.data]))
+      .catch(err => console.log(err));
+  };
+
   return (
     <>
       <Row>
         <Col span={24}>
-          <SearchBar search={handleSearch} loading={loading} />
+          <SearchBar
+            search={handleSearch}
+            loading={loading}
+            value={query}
+            setValue={setQuery}
+          />
         </Col>
       </Row>
       <Row justify="space-between" style={{ marginTop: "40px" }}>
@@ -54,6 +67,7 @@ export default function Main(props) {
             setTitle={setTitle}
             setLocation={setLocation}
             setJobType={setJobType}
+            resetData={resetData}
           />
         </Col>
         <Col span={13}>
